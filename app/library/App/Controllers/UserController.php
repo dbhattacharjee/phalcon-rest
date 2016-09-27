@@ -18,7 +18,6 @@ class UserController extends CrudResourceController
 
         $session = $this->authManager->loginWithUsernamePassword(\App\Auth\UsernameAccountType::NAME, $username,
             $password);
-
         $transformer = new \App\Transformers\UserTransformer;
         $transformer->setModelClass('App\Model\User');
 
@@ -31,6 +30,11 @@ class UserController extends CrudResourceController
         ];
 
         return $this->createArrayResponse($response, 'data');
+    }
+    
+    public function logout() {
+        //print_r($token = $this->request->getToken());die;
+        $this->session->destroy();
     }
 
     public function whitelist()

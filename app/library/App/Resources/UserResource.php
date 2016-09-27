@@ -39,6 +39,11 @@ class UserResource extends Resource {
                     'token' => 'co126bbm40wqp41i3bo7pj1gfsvt9lp6',
                     'expires' => 1451139067
                 ])
+            )
+             ->endpoint(Endpoint::post('/logout', 'logout')
+                ->allow(AclRoles::USER)
+                ->deny(AclRoles::UNAUTHORIZED)
+                ->description('Logout a user')
             );
     }
 }
