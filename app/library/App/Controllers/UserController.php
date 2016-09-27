@@ -32,11 +32,6 @@ class UserController extends CrudResourceController
         return $this->createArrayResponse($response, 'data');
     }
     
-    public function logout() {
-        //print_r($token = $this->request->getToken());die;
-        $this->session->destroy();
-    }
-
     public function whitelist()
     {
         return [
